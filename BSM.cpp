@@ -68,22 +68,28 @@ void BSM::logNormalRandomWalk()
 
     // We now divide our pots by the total number of simulations ran to determine the average price and therefore
     // our expected option price
-    double bsmCallPrice = callPayoffPot / getBsmMonteCarloSims();
-    double bsmPutPrice = putPayoffPot / getBsmMonteCarloSims();
-
-    // We can now print out the options pricing as determined by our simulation
-    std::cout << "Call price: " << bsmCallPrice << std::endl;
-    std::cout << "Put price: " << bsmPutPrice << std::endl;
+    setBsmCallPrice(callPayoffPot / getBsmMonteCarloSims());
+    setBsmPutPrice(putPayoffPot / getBsmMonteCarloSims());
 };
 
-double BSM::getCallPrice()
+void BSM::setBsmCallPrice(double prc)
 {
-    return 0;
+    bsmCallPrice = prc;
 }
 
-double BSM::getPutPrice()
+void BSM::setBsmPutPrice(double prc)
 {
-    return 10;
+    bsmPutPrice = prc;
+}
+
+double BSM::getBsmCallPrice()
+{
+    return bsmCallPrice;
+}
+
+double BSM::getBsmPutPrice()
+{
+    return bsmPutPrice;
 }
 
 float BSM::getBsmAssetPrice()

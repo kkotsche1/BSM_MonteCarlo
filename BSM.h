@@ -24,8 +24,10 @@ public:
 
     void logNormalRandomWalk();
 
-    double getCallPrice();
-    double getPutPrice();
+    double getBsmCallPrice();
+    double getBsmPutPrice();
+    void setBsmCallPrice(double);
+    void setBsmPutPrice(double);
 
     double rn(); // Function to generate random number
 
@@ -39,4 +41,6 @@ private:
     float bsmYrsToExpiry;
     long bsmSteps;
     long bsmMonteCarloSims;
+    double bsmCallPrice;
+    double bsmPutPrice;
 };

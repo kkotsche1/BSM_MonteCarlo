@@ -41,13 +41,22 @@ int main(int argc, const char *argv[])
     //           << "STEPS TO TAKE: " << bsm.getBsmSteps() << std::endl
     //           << "NUMBER OF SIMULATIONS: " << bsm.getBsmMonteCarloSims() << std::endl;
 
+    // Timing the execution time of the BSM Monte Carlo Simulation
+    clock_t start = clock();
+
     // Running the simulations
     bsm.logNormalRandomWalk();
 
+    clock_t end = clock();
+
+    double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+    std::cout << "Time taken for logNormalRandomWalk: " << cpu_time_used << " seconds." << std::endl;
+
     // Printing out our simulation results
-    // std::cout << std::endl; // printing empty lines
-    // std::cout << "CALL OPTION PRICE: " << bsm.getCallPrice() << std::endl;
-    // std::cout << "PUT OPTION PRICE: " << bsm.getPutPrice() << std::endl;
+    std::cout << std::endl; // printing empty lines
+    std::cout << "CALL OPTION PRICE: " << bsm.getBsmCallPrice() << std::endl;
+    std::cout << "PUT OPTION PRICE: " << bsm.getBsmPutPrice() << std::endl;
 
     return 0;
 };
